@@ -34,6 +34,10 @@ where
         AdafruitAHT10 { i2c }
     }
 
+    pub fn destroy(self) -> I2C {
+        self.i2c
+    }
+
     pub fn begin(&mut self) -> Result<(), Aht10Error> {
         self.soft_reset()?;
         self.calibrate()?;
